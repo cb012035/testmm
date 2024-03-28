@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Innovita Healthcare</title>
+    <title>Innovita Health</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -102,24 +102,31 @@
           z-index:-1;
          background: linear-gradient(to bottom, rgba(0,0,0,0.12) 40%,rgba(27,32,48,1) 100%);
         }
-        .header:before{
-          content:"";
-          width:100%;
-          height:200%;
-          position:absolute;
-          top:0;
-          left:0;
-            -webkit-backface-visibility: hidden;
-            -webkit-transform: translateZ(0); backface-visibility: hidden;
-          scale(1.0, 1.0);
-            transform: translateZ(0);
-          background:#1B2030 url(https://images.unsplash.com/photo-1571993142257-eae0b44cf0f1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50% 0 no-repeat;
-          background-size:100%;
-          background-attachment:fixed;
-          animation: grow 360s  linear 10ms infinite;
-          transition:all 0.4s ease-in-out;
-          z-index:-2
-        }
+.header:before {
+    content: "";
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #1B2030 url(https://images.unsplash.com/photo-1571993142257-eae0b44cf0f1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ) 50% 0 no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    animation: moveBackground 25s linear infinite;
+    z-index: -2;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+
+
         .header a{
           color:#eee
         }
@@ -127,12 +134,12 @@
         
           .menu {
          display:block;
-          width:33px;
-          height:35px;
+          width:29px;
+          height:42px;
           border:2px solid #fff;
-          border-radius:3px;
+          border-radius:2px;
           position:absolute;
-          right:10px;
+          right:12px;
           top:25px;
           text-decoration:none
         }
@@ -153,7 +160,7 @@
         @media screen and (max-width: 768px) {
           .menu {
             width: 33px; /* Adjusted width for mobile */
-            height: 35px; /* Adjusted height for mobile */
+            height: 45px; /* Adjusted height for mobile */
             font-size: 30px; /* Adjusted font size for mobile */
             top: 34px; /* Adjusted top position for mobile */
           }
@@ -173,22 +180,22 @@
   display: inline-flex;
   align-items: center;
   align-content: center;
-  margin: 20px;
-  padding: 0px 10px;
+  margin: 25px;
+  padding: 0px 20px;
   font-weight: 900;
   font-size: 1.1em;
   line-height: 1;
   box-sizing: border-box;
-  height: 40px;
+  height: 43px;
 }
 
 /* Media Query for Mobile Devices */
 @media only screen and (max-width: 600px) {
   .logo {
-    margin: 10px; /* Adjusted margin for mobile */
-    padding: 0px 5px; /* Adjusted padding for mobile */
+    margin: 25px; /* Adjusted margin for mobile */
+    padding: 0px 10px; /* Adjusted padding for mobile */
     font-size: 1em; /* Adjusted font size for mobile */
-    height: 30px; /* Adjusted height for mobile */
+    height: 45px; /* Adjusted height for mobile */
   }
 }
 
@@ -234,10 +241,7 @@
         .meta{
           font-style:italic;
         }
-        @keyframes grow{
-          0% { transform: scale(1) translateY(0px)}
-          50% { transform: scale(1.2) translateY(-400px)}
-        }
+       
         /* Base styles */
            .achievements { 
         
@@ -555,21 +559,22 @@
           padding:5px 10px;
           font-weight:600
         }
-        
-        .twtr{
-          margin-top:100px
-        }.btn.twtr:after{content:"\1F426";padding-left:5px}
-          position: relative;
+   
+
+
+  .twtr {
+    margin-top: 100px;
+}
+ }.btn.twtr:after{content:"\1F426";padding-left:5px}
+        position: relative;
           width: 100%;
-          background: #3586ff;
-          min-height: 100px;
-          padding: 20px 50px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-        }
+      
+    
         
+    
+
+        
+
         .social-icon,
         .menu {
           position: relative;
@@ -625,11 +630,11 @@
   </div>
  <div class="info">
 
-            <h1>INNOVITA HEALTHCARE</h1>
+            <h1>INNOVITA HEALTH</h1>
             <div class="meta">
                 <a href="https://twitter.com/romeledward17" target="_b" class="author"></a><br>
-                By <a href="https://twitter.com/romeledward17" target="b">Innovita Healthcare</a> on March 22, 2024
-                <p>Experience the Future of Healthcare with Innovita Healthcare, where imagination and groundbreaking innovations intersect, transforming the way healthcare is delivered for a better, healthier world</p>
+                By <a href="https://twitter.com/romeledward17" target="b">Innovita Health</a> on March 22, 2024
+                <p>Experience the Future of Healthcare with Innovita Health, where imagination and groundbreaking innovations intersect, transforming the way health is delivered for a better, healthier world</p>
             </div>
         </div>
     </div>
@@ -653,14 +658,14 @@
             <img src="project2.png" alt="Skills Logo" class="logo2">
             <i class="fas fa-skiing"></i>
             <p class="work-heading">Skills</p>
-            <p class="work-text">At Innovita Healthcare, our commitment to innovation, design, and user experience is exemplified in the pharmaceutical sector as we've leveraged our expertise in programming, design, and visionary leadership to develop cutting-edge solutions that revolutionize healthcare. We are dedicated to continually seeking new ways to advance our skills and push the boundaries, ensuring that our contributions remain at the forefront of the industry and positively impacting the lives of patients around the world.</p>
+            <p class="work-text">At Innovita Health, our commitment to innovation, design, and user experience is exemplified in the pharmaceutical sector as we've leveraged our expertise in programming, design, and visionary leadership to develop cutting-edge solutions that revolutionize healthcare. We are dedicated to continually seeking new ways to advance our skills and push the boundaries, ensuring that our contributions remain at the forefront of the industry and positively impacting the lives of patients around the world.</p>
         </div>
 
         <div class="work">
             <img src="project3.png" alt="Network Logo" class="logo3">
             <i class="fas fa-ethernet"></i>
             <p class="work-heading">Network</p>
-            <p class="work-text">At Innovita Healthcare, we harness our extensive network and strong relationships within the pharmaceutical sector, combined with our commitment to innovation and user experience, to deliver groundbreaking solutions that revolutionize healthcare and solidify our position as a leader in the tech industry.</p>
+            <p class="work-text">At Innovita Health, we harness our extensive network and strong relationships within the pharmaceutical sector, combined with our commitment to innovation and user experience, to deliver groundbreaking solutions that revolutionize healthcare and solidify our position as a leader in the tech industry.</p>
         </div>
 
     </div>
@@ -668,10 +673,18 @@
     <div class="about-me">
         <div class="about-me-text">
             <h2>About Me</h2>
-            <p>Romel Edward Bellana, a dedicated Computer Science student, specializes in cloud computing and aspires to pursue a Master's in Artificial Intelligence for healthcare innovations. With a solid foundation in cloud platforms and programming, Romel is committed to driving data-driven projects in the pharmaceutical sector.</p>
-            <p>Throughout his academic career, Romel has honed his technical skills and is now focused on expanding his knowledge of cloud-based technologies to bring about practical solutions in the pharmaceutical industry.</p>
-            <p>Currently, Romel is working on securing an internship in a pharmaceutical company and aims to climb the ranks in the industry, ultimately securing a leadership role that allows him to shape the future of healthcare with technology.</p>
-        </div>
+           <p> Greetings,</p>
+
+            <p>I am Romel Edward Bellana, a driven and dedicated Computer Science student with a profound specialization in cloud computing. My passion lies in leveraging technology, particularly Artificial Intelligence, to revolutionize healthcare. With a robust foundation in cloud platforms and programming, I am committed to pioneering data-driven solutions within the pharmaceutical sector.</p>
+            
+          <p>Throughout my academic career, I have actively developed my technical skills, developing a thorough understanding of the latest technologies. My current focus is on improving my knowledge of cloud-based technology to address real-world healthcare challenges.</p>
+          <p> Presently, I am actively pursuing opportunities to contribute my skills and knowledge as an intern in a reputable pharmaceutical company. I am driven by the ambition to ascend the ranks within the industry, ultimately seeking a leadership role where I can steer the integration of technology to redefine healthcare paradigms.</p>
+          
+          <p> Thank you for visiting my page. I look forward to connecting and collaborating on transformative projects that shape the future of healthcare.</p>
+            
+        <p>Warm regards,</p>
+      <p>  Romel Edward Bellana</p>
+      </div>
         <img src="https://i.pinimg.com/564x/17/df/a9/17dfa916f8e4ca133dbbf0b4fbf76c3c.jpg" alt="me">
     </div>
 
@@ -711,8 +724,12 @@
                     </div>
                 </div>
             </div>
-           </footer><center><p>&copy; 2024 Innovita Healthcare. All rights reserved.</p></center>
-        </footer>
+            <footer>
+              <div style="text-align: center;">
+                  <p style="font-size: 14px; margin-bottom: 5px;">&copy; 2024 Innovita Healthcare. All rights reserved.</p>
+              </div>
+          </footer>
+          
     </div>
 
 
