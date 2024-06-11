@@ -1,138 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>INNOVITA HEALTH - Revolutionizing Medicine in Sri Lanka</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-param" content="authenticity_token" />
-    <meta name="csrf-token" content="qPIrMMGikvM7ylggh5LhzBFNBhCSrKYh8TAEmR32GouUiZB1abugRkNChIAMQR0Fp-8EqqLDDFmDCdgmYWuKRg" />
-    <link rel="icon" type="image/x-icon" href="favicon.png" />
-    <link rel="stylesheet" href="https://d1w019qw3bn26k.cloudfront.net/assets/application-4861fde41a610277f8aaf63e739f85cba8d6a28167a2ba75fde8d6d0c9dc6afe.css" data-turbo-track="reload" />
-    <script src="https://d1w019qw3bn26k.cloudfront.net/assets/application-96366d9fa3d37bdeb995460f55f39f1fa737e0bd3cd5db696f70c202d85715f1.js" data-turbo-track="reload" defer="defer"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-P9M5S0890F"></script>
-    <script defer src="https://unpkg.com/@alpinejs/ui@3.10.5-beta.7/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/@alpinejs/focus@3.10.5/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Hospital of Sri Lanka - Director's Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .nav-link {
+            transition: background-color 0.2s;
+        }
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body data-controller='lazy-loader'>
-<main 
-  data-controller='class-toggler' 
-  data-class-toggler-active-toggler-classes-value='["bg-white", "border-gray-200", "shadow-sm"]'
-  data-class-toggler-inactive-toggler-classes-value='["border-transparent", "hover:text-gray-700"]'
->
-  <header class="flex items-center justify-between h-20 px-4 leading-6 text-gray-700 border-b border-gray-200 border-solid sm:grid sm:auto-cols-auto sm:grid-cols-3 sm:px-6 lg:px-8">
-    <nav class="flex sm:col-span-1" aria-label="Breadcrumb">
-      <a href="/" class="text-xl font-bold text-cool-indigo-600">INNOVITA HEALTH</a>
-    </nav>
-    <div class="hidden w-full sm:flex sm:flex-col sm:align-center">
-      <div class="relative self-center bg-gray-100 rounded-2lg p-0.5 flex">
-        <a href="#services" class="lg:flex justify-center relative hidden lg:w-1/3 rounded-2lg py-1.5 text-sm font-medium text-gray-500 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cool-indigo-400 focus:z-10 sm:px-4">Services</a>
-        <a href="#about" class="flex justify-center relative w-1/2 lg:w-1/3 rounded-2lg py-1.5 text-sm font-medium text-gray-500 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cool-indigo-300 focus:z-10 sm:px-4 ml-0.5">About Us</a>
-        <a href="#contact" class="flex justify-center relative w-1/2 lg:w-1/3 rounded-2lg py-1.5 text-sm font-medium text-gray-500 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cool-indigo-300 focus:z-10 sm:px-4 ml-0.5">Contact</a>
-      </div>
-    </div>
-    <div class="flex items-center justify-end text-gray-700 sm:col-span-1">
-      <div class="shrink-0">
-        <a class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white transition duration-150 border border-transparent shadow-sm rounded-2xl bg-cool-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cool-indigo-500" href="#contact">Get in Touch</a>
-      </div>
-    </div>
-  </header>
-  <section class="px-4 py-8 leading-6 text-gray-700 sm:px-6 lg:px-8" id="hero">
-    <div class="w-full mx-auto text-center max-w-screen-3xl">
-      <h1 class="text-4xl font-bold text-cool-indigo-600">Welcome to INNOVITA HEALTH</h1>
-      <p class="mt-4 text-lg">Revolutionizing the pharmaceutical industry in Sri Lanka by providing a seamless and secure digital platform for purchasing medicines.</p>
-      <a href="#overview" class="inline-block mt-6 px-6 py-3 text-lg font-medium text-white bg-cool-indigo-600 rounded-2xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cool-indigo-500">Learn More</a>
-      <img src="https://source.unsplash.com/1600x900/?pharmacy,medicine" alt="Pharmaceutical" class="mt-8 w-full rounded-lg shadow-lg">
-    </div>
-  </section>
-  <section class="px-4 py-8 leading-6 text-gray-700 bg-gray-100 sm:px-6 lg:px-8" id="overview">
-    <div class="w-full mx-auto max-w-screen-3xl">
-      <h2 class="text-2xl font-bold text-center text-cool-indigo-600">Revolutionizing Medicine in Sri Lanka</h2>
-      <p class="mt-4 text-lg text-center">INNOVITA HEALTH is transforming the way medicines are accessed and managed in Sri Lanka through a digital system that makes everything smoother and safer. Partnering with state-owned pharmaceutical companies, we ensure transparency, efficiency, and ease of access in the pharmaceutical industry.</p>
-      <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Digital Pharmaceutical Management</h3>
-          <p class="mt-2 text-gray-600">Streamlines inventory management, eliminates manual document processing, and provides instant drug inventory tracking.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Anti-fraud Technology</h3>
-          <p class="mt-2 text-gray-600">Uses cutting-edge blockchain technology to ensure drug authenticity, maintain transaction transparency, and prevent counterfeiting.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Ease of Access</h3>
-          <p class="mt-2 text-gray-600">With a user-friendly interface, customers can easily find and purchase medicines at hospitals and pharmacies.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="px-4 py-8 leading-6 text-gray-700 bg-gray-100 sm:px-6 lg:px-8" id="services">
-    <div class="w-full mx-auto max-w-screen-3xl">
-      <h2 class="text-2xl font-bold text-center text-cool-indigo-600">Our Services</h2>
-      <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 lg:grid-cols-3">
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <img src="https://source.unsplash.com/400x300/?medicine,pharmacy" alt="Digital Medicine Management" class="w-full h-40 object-cover rounded-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Digital Medicine Management</h3>
-          <p class="mt-2 text-gray-600">Our platform has revolutionized the way medicines are processed in Sri Lanka by streamlining inventory management, eliminating the need for manual document processing and providing instant drug inventory tracking.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <img src="https://source.unsplash.com/400x300/?blockchain,technology" alt="Anti-fraud Technology" class="w-full h-40 object-cover rounded-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Anti-fraud Technology</h3>
-          <p class="mt-2 text-gray-600">We use cutting-edge blockchain technology to ensure drug authenticity, maintain transaction transparency, and prevent drug counterfeiting and dubious transactions.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-lg">
-          <img src="https://source.unsplash.com/400x300/?online,shopping" alt="Ease of Access" class="w-full h-40 object-cover rounded-lg">
-          <h3 class="mt-4 text-xl font-semibold text-cool-indigo-600">Ease of Access</h3>
-          <p class="mt-2 text-gray-600">With a user-friendly interface, customers can easily find and purchase medicines at hospitals and pharmacies.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="px-4 py-8 leading-6 text-gray-700 sm:px-6 lg:px-8" id="about">
-    <div class="w-full mx-auto max-w-screen-3xl">
-      <h2 class="text-2xl font-bold text-center text-cool-indigo-600">About Us</h2>
-      <div class="mt-8 space-y-6 text-center">
-        <img src="https://source.unsplash.com/1600x900/?team,pharmacy" alt="Our Team" class="w-full rounded-lg shadow-lg">
-        <p class="text-lg">INNOVITA HEALTH is dedicated to providing high-quality pharmaceutical services. Our team of experienced professionals is committed to ensuring the well-being of our customers through a seamless and secure digital platform for purchasing medicines.</p>
-      </div>
-    </div>
-  </section>
-  <section class="px-4 py-8 leading-6 text-gray-700 bg-gray-100 sm:px-6 lg:px-8" id="contact">
-    <div class="w-full mx-auto max-w-screen-3xl">
-      <h2 class="text-2xl font-bold text-center text-cool-indigo-600">Contact Us</h2>
-      <div class="mt-8">
-        <form action="#" method="POST" class="space-y-6">
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-              <input type="text" id="name" name="name" required class="w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cool-indigo-300" />
+<body class="bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Top Navigation -->
+    <header class="bg-gray-900 text-white p-4 shadow-md">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="https://th.bing.com/th?id=OIP.nijrpzTE-wQwD0QOfGx7JAHaDH&w=349&h=147&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Hospital Logo" class="h-10">
+                <h1 class="text-xl font-bold">National Hospital of Sri Lanka</h1>
             </div>
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-              <input type="email" id="email" name="email" required class="w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cool-indigo-300" />
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="nav-link p-2 rounded">Home</a></li>
+                    <li><a href="#" class="nav-link p-2 rounded">Hospital Management</a></li>
+                    <li><a href="#" class="nav-link p-2 rounded">Inventory Management</a></li>
+                    <li><a href="#" class="nav-link p-2 rounded">Monitor Inventory</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex flex-1">
+        <!-- Sidebar -->
+        <aside class="bg-gray-800 text-white w-64 min-h-full p-6 flex flex-col">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold">Director's Dashboard</h2>
             </div>
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 mt-1 text-gray-700 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cool-indigo-300"></textarea>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="inline-flex items-center justify-center px-6 py-2 text-sm font-medium text-white bg-cool-indigo-600 rounded-2xl hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cool-indigo-500">Send Message</button>
-          </div>
-        </form>
-      </div>
+            <nav class="flex-grow">
+                <ul>
+                    <li class="mb-4">
+                        <a href="#" class="block p-2 rounded nav-link">Dashboard Overview</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="block p-2 rounded nav-link">Hospital Management</a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="block p-2 rounded nav-link">Inventory Management</a></li>
+                    <li class="mb-4">
+                        <a href="#" class="block p-2 rounded nav-link">Monitor Inventory</a></li>
+                    <li class="mb-4">
+                        <a href="#" class="block p-2 rounded nav-link">Analytics</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Dashboard -->
+        <main class="flex-1 p-10">
+            <header class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">Director's Dashboard</h2>
+                <p class="text-gray-600">Manage the National Hospital of Sri Lanka efficiently and effectively.</p>
+            </header>
+
+            <!-- Content starts here -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Hospital Management Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://th.bing.com/th/id/OIP.fPgRLBJtLfo5xY-5VYNBEgHaD4?w=345&h=181&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Hospital Management" class="w-12 h-12 mr-4">
+                        <h3 class="text-xl font-semibold text-gray-900">Hospital Management</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Oversee hospital operations, ensure compliance, and improve overall hospital performance.</p>
+                    <a href="#" class="block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg">Manage Hospital</a>
+                </div>
+
+                <!-- Inventory Management Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://th.bing.com/th/id/OIP.PO54IjJ1DHdGVgoDYoF-nQHaFj?w=225&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Inventory Management" class="w-12 h-12 mr-4">
+                        <h3 class="text-xl font-semibold text-gray-900">Inventory Management</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Monitor and manage the hospital's inventory levels, reorder supplies, and track usage trends.</p>
+                    <a href="#" class="block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg">Go to Inventory</a>
+                </div>
+
+                <!-- Monitor Inventory Levels Section -->
+                <div class="bg-white p-6 rounded-lg shadow-md card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://th.bing.com/th/id/OIP.PO54IjJ1DHdGVgoDYoF-nQHaFj?w=225&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="Monitor Inventory Levels" class="w-12 h-12 mr-4">
+                        <h3 class="text-xl font-semibold text-gray-900">Monitor Inventory Levels</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Track inventory levels and ensure that essential supplies are always available.</p>
+                    <a href="#" class="block bg-blue-600 hover:bg-blue-700 text-white text-center py-2 px-4 rounded-lg">Monitor Inventory</a>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <section class="mt-10">
+                <header class="mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Analytics</h2>
+                    <p class="text-gray-600">Gain insights into hospital performance and operations.</p>
+                </header>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Example Chart: Patient Visits -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Patient Visits</h3>
+                        <canvas id="patientVisitsChart"></canvas>
+                    </div>
+                    <!-- Example Chart: Inventory Usage -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Inventory Usage</h3>
+                        <canvas id="inventoryUsageChart"></canvas>
+                    </div>
+                    <!-- Example Chart: Doctors Status -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Doctors Status</h3>
+                        <canvas id="doctorsChart"></canvas>
+                    </div>
+                    <!-- Example Chart: Nurses Status -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Nurses Status</h3>
+                        <canvas id="nursesChart"></canvas>
+                    </div>
+                    <!-- Example Chart: Minor Staff Status -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Minor Staff Status</h3>
+                        <canvas id="minorStaffChart"></canvas>
+                    </div>
+                    <!-- Example Chart: Other Staff Status -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Other Staff Status</h3>
+                        <canvas id="otherStaffChart"></canvas>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-  </section>
-</main>
-<!-- Global toast live region -->
-<div aria-live="assertive" class="fixed inset-0 z-50 flex items-end px-4 py-6 pointer-events-none sm:p-6 sm:items-start">
-  <div id='flash-messages' class="flex flex-col items-center w-full space-y-4 sm:items-end">
-    <!-- Toast messages will appear here -->
-  </div>
-</div>
+
+    <script>
+        // Patient Visits Chart
+        const ctx1 = document.getElementById('patientVisitsChart').getContext('2d');
+        const patientVisitsChart = new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Patient Visits',
+                    data: [120, 150, 170, 180, 210, 230],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Inventory Usage Chart
+        const ctx2 = document.getElementById('inventoryUsageChart').getContext('2d');
+        const inventoryUsageChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['Gloves', 'Masks', 'Sanitizers', 'Gowns', 'Syringes'],
+                datasets: [{
+                    label: 'Usage',
+                    data: [300, 500, 200, 150, 400],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Doctors Chart
+        const ctx3 = document.getElementById('doctorsChart').getContext('2d');
+        const doctorsChart = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Available', 'On Leave', 'Busy'],
+                datasets: [{
+                    label: 'Doctors',
+                    data: [30, 10, 5],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+
+        // Nurses Chart
+        const ctx4 = document.getElementById('nursesChart').getContext('2d');
+        const nursesChart = new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: ['Available', 'On Leave', 'Busy'],
+                datasets: [{
+                    label: 'Nurses',
+                    data: [45, 7, 8],
+                    backgroundColor: [
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+
+        // Minor Staff Chart
+        const ctx5 = document.getElementById('minorStaffChart').getContext('2d');
+        const minorStaffChart = new Chart(ctx5, {
+            type: 'pie',
+            data: {
+                labels: ['Available', 'On Leave', 'Busy'],
+                datasets: [{
+                    label: 'Minor Staff',
+                    data: [20, 5, 3],
+                    backgroundColor: [
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 205, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 205, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+
+        // Other Staff Chart
+        const ctx6 = document.getElementById('otherStaffChart').getContext('2d');
+        const otherStaffChart = new Chart(ctx6, {
+            type: 'pie',
+            data: {
+                labels: ['Available', 'On Leave', 'Busy'],
+                datasets: [{
+                    label: 'Other Staff',
+                    data: [25, 3, 2],
+                    backgroundColor: [
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+            }
+        });
+    </script>
 </body>
-</html>
-
-
+</html> 
 
