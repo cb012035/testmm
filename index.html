@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B8Q0MTW189"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B8Q0MTW189');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B8Q0MTW189"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-B8Q0MTW189');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Hospital of Sri Lanka - Director's Dashboard</title>
-    <style>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -47,7 +45,7 @@
             <nav>
                 <ul class="flex space-x-4">
                     <li><a href="#" class="nav-link p-2 rounded">Home</a></li>
-                      <li><a href="https://analytics.google.com/analytics/web/#/p445357732/reports/reportinghub?params=_u..nav%3Dmaui" class="nav-link p-2 rounded">Google analytics</a></li>
+                  
                     <li><a href="#" class="nav-link p-2 rounded">Hospital Management</a></li>
                     <li><a href="#" class="nav-link p-2 rounded">Inventory Management</a></li>
                     <li><a href="#" class="nav-link p-2 rounded">Monitor Inventory</a></li>
@@ -66,7 +64,7 @@
             <nav class="flex-grow">
                 <ul>
                     <li class="mb-4">
-                        <a href="#" class="block p-2 rounded nav-link">Dashboard Overview</a>
+                        <a href="https://analytics.google.com/analytics/web/#/p445357732/reports/reportinghub?params=_u..nav%3Dmaui" class="nav-link p-2 rounded" class="block p-2 rounded nav-link">Google Analytics</a>
                     </li>
                     <li class="mb-4">
                         <a href="#" class="block p-2 rounded nav-link">Hospital Management</a>
@@ -148,34 +146,28 @@
                         <h3 class="text-lg font-semibold text-gray-900 mb-4">Nurses Status</h3>
                         <canvas id="nursesChart"></canvas>
                     </div>
-                    <!-- Example Chart: Minor Staff Status -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Minor Staff Status</h3>
-                        <canvas id="minorStaffChart"></canvas>
-                    </div>
-                    <!-- Example Chart: Other Staff Status -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Other Staff Status</h3>
-                        <canvas id="otherStaffChart"></canvas>
-                    </div>
                 </div>
             </section>
         </main>
     </div>
 
+    <!-- Chart.js Script -->
     <script>
-        // Patient Visits Chart
-        const ctx1 = document.getElementById('patientVisitsChart').getContext('2d');
-        const patientVisitsChart = new Chart(ctx1, {
+        const patientVisitsCtx = document.getElementById('patientVisitsChart').getContext('2d');
+        const inventoryUsageCtx = document.getElementById('inventoryUsageChart').getContext('2d');
+        const doctorsCtx = document.getElementById('doctorsChart').getContext('2d');
+        const nursesCtx = document.getElementById('nursesChart').getContext('2d');
+
+        const patientVisitsChart = new Chart(patientVisitsCtx, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
                 datasets: [{
                     label: 'Patient Visits',
-                    data: [120, 150, 170, 180, 210, 230],
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: [65, 59, 80, 81, 56, 55, 40],
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderWidth: 2
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
                 }]
             },
             options: {
@@ -188,29 +180,15 @@
             }
         });
 
-        // Inventory Usage Chart
-        const ctx2 = document.getElementById('inventoryUsageChart').getContext('2d');
-        const inventoryUsageChart = new Chart(ctx2, {
+        const inventoryUsageChart = new Chart(inventoryUsageCtx, {
             type: 'bar',
             data: {
-                labels: ['Gloves', 'Masks', 'Sanitizers', 'Gowns', 'Syringes'],
+                labels: ['Syringes', 'Gloves', 'Masks', 'Bandages', 'Disinfectants'],
                 datasets: [{
-                    label: 'Usage',
-                    data: [300, 500, 200, 150, 400],
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)'
-                    ],
+                    label: 'Inventory Usage',
+                    data: [120, 90, 80, 70, 100],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
                     borderWidth: 1
                 }]
             },
@@ -224,114 +202,56 @@
             }
         });
 
-        // Doctors Chart
-        const ctx3 = document.getElementById('doctorsChart').getContext('2d');
-        const doctorsChart = new Chart(ctx3, {
+        const doctorsChart = new Chart(doctorsCtx, {
             type: 'pie',
             data: {
                 labels: ['Available', 'On Leave', 'Busy'],
                 datasets: [{
-                    label: 'Doctors',
-                    data: [30, 10, 5],
+                    label: 'Doctors Status',
+                    data: [10, 2, 8],
                     backgroundColor: [
                         'rgba(75, 192, 192, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)'
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
                     ],
                     borderColor: [
                         'rgba(75, 192, 192, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 205, 86, 1)'
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)'
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
+                responsive: true
             }
         });
 
-        // Nurses Chart
-        const ctx4 = document.getElementById('nursesChart').getContext('2d');
-        const nursesChart = new Chart(ctx4, {
+        const nursesChart = new Chart(nursesCtx, {
             type: 'pie',
             data: {
                 labels: ['Available', 'On Leave', 'Busy'],
                 datasets: [{
-                    label: 'Nurses',
-                    data: [45, 7, 8],
+                    label: 'Nurses Status',
+                    data: [20, 4, 16],
                     backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)'
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 205, 86, 1)'
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(255, 206, 86, 1)'
                     ],
                     borderWidth: 1
                 }]
             },
             options: {
-                responsive: true,
-            }
-        });
-
-        // Minor Staff Chart
-        const ctx5 = document.getElementById('minorStaffChart').getContext('2d');
-        const minorStaffChart = new Chart(ctx5, {
-            type: 'pie',
-            data: {
-                labels: ['Available', 'On Leave', 'Busy'],
-                datasets: [{
-                    label: 'Minor Staff',
-                    data: [20, 5, 3],
-                    backgroundColor: [
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(255, 205, 86, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(255, 205, 86, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-            }
-        });
-
-        // Other Staff Chart
-        const ctx6 = document.getElementById('otherStaffChart').getContext('2d');
-        const otherStaffChart = new Chart(ctx6, {
-            type: 'pie',
-            data: {
-                labels: ['Available', 'On Leave', 'Busy'],
-                datasets: [{
-                    label: 'Other Staff',
-                    data: [25, 3, 2],
-                    backgroundColor: [
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(255, 159, 64, 0.2)',
-                        'rgba(75, 192, 192, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(255, 159, 64, 1)',
-                        'rgba(75, 192, 192, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
+                responsive: true
             }
         });
     </script>
 </body>
-</html> 
+</html>
 
